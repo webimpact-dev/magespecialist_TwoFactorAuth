@@ -279,18 +279,4 @@ class UserConfigManagerTest extends TestCase
             $this->userConfigManager->getProviderConfig($dummyUser->getId(), 'test_provider2')
         );
     }
-
-    /**
-     * @inheritDoc
-     */
-    protected function tearDown()
-    {
-        /** @var ResourceConnection $resourceConnection */
-        $resourceConnection = Bootstrap::getObjectManager()->create(ResourceConnection::class);
-
-        $connection = $resourceConnection->getConnection();
-        $connection->delete('admin_user');
-
-        parent::tearDown();
-    }
 }
